@@ -1,0 +1,32 @@
+{
+  "name": "Youtube screenshot tool",
+  "version": "0.1.0",
+  "description": "Chrome extension capturing screenshots on YouTube pages, organizes images in numbered order, providing a seamless way to save and manage visual references efficiently.",
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/icon.png", "assets/down.png"],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/icon.png",
+      "24": "assets/icon.png",
+      "32": "assets/icon.png"
+    },
+    "default_title": "Youtube screenshot tool",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
